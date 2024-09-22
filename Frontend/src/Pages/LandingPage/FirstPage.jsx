@@ -7,16 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Firstpagecontent = () => {
 
-  useEffect(() => {
-    landingPage()
-  }, [])
-
-  let landingPage = async () =>{
-    let response = await fetch('/jobAI')
-    let data = await response.json()  
-    console.log(data)
-  }
-
   const navigate = useNavigate();
   return (
     <div className="Firstpage-main">
