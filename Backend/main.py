@@ -16,22 +16,20 @@ def users():
 if __name__=='__main__':
     app.run(debug=True)'''
 
-from fastapi import FastAPI, Body
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# CORS settings: Allow all origins, methods, headers
+# Set up CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # You can specify allowed origins, but "*" allows all
+    allow_origins=["http://localhost:5173"],  # The frontend origin
     allow_credentials=True,
-    allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
+    allow_methods=["*"],  # Allow all methods
     allow_headers=["*"],  # Allow all headers
 )
 
-# Define root route to display available routes
 @app.get("/")
 def read_data():
     return {"message": "Hello from FastAPI"}
-

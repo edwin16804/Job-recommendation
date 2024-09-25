@@ -9,6 +9,21 @@ import React, { useEffect, useState } from "react";
 
 
 const App=()=> {
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/");
+        const jsonData = await response.json();
+        setData(jsonData.message);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (  
     <div>
