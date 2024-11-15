@@ -136,12 +136,75 @@ h3:active {
     padding: 10px;
     overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-left: 2%;
     width: 75%; /* Make the job-data divs take full width of their column */
     
 }
 .postings ::-webkit-scrollbar {
     display: none;
   }
+  .resume-upload {
+    padding: 2%;
+    width: 60%;
+    margin: 5% auto;
+    background-color: #f9f9f9;
+    border: 1px solid rgba(190, 186, 186, 0.634);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    text-align: center;
+}
+
+.resume-upload h2 {
+    font-size: 24px;
+    letter-spacing: 0.4px;
+    margin-bottom: 20px;
+    color: rgb(18, 52, 225);
+}
+
+.resume-upload label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.resume-upload input[type="file"] {
+    display: block;
+    margin: 10px auto 20px auto;
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid rgba(190, 186, 186, 0.634);
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.resume-upload input[type="file"]:hover {
+    border-color: rgb(18, 52, 225);
+}
+
+.resume-upload .upload-btn {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: rgb(18, 52, 225);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: -4px -2px 16px 0px #ffffff, 4px 2px 16px 0px rgba(114, 159, 214, 0.48);
+    transition: 0.2s;
+}
+
+.resume-upload .upload-btn:hover {
+    background-color: #293eda;
+    box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgba(95, 157, 231, 0.48);
+}
+
+.resume-upload .upload-btn:active {
+    box-shadow: none;
+    background-color: #1d3c99;
+}
 
