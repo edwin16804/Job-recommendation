@@ -14,7 +14,7 @@ const Firstpagecontent = () => {
         <p>JobAI</p>
         <h2 className='button1' onClick={() => navigate('login')}>Login</h2>
       </div>
-      <div className='Firstpage-content'>With the power of <font color="blue" size="20px">AI</font><br />
+      <center><div className='Firstpage-content'>With the power of <font color="blue" size="20px">AI</font><br />
         revolutionalize job search with<br />
         <font color="blue" size="20px"><TypeAnimation
           sequence={[
@@ -33,7 +33,7 @@ const Firstpagecontent = () => {
         <button className="get-started" onClick={() => navigate('signup')}>
           GET STARTED
         </button>
-      </div>
+      </div></center>
     </div>
   );
 };
