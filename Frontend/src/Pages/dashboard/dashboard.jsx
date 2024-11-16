@@ -13,42 +13,48 @@ const Dashboard = (props) => {
     ];
 
     const [file, setFile] = useState(null); // Store the selected file
-    const [summary, setSummary] = useState(null);
+    const [summary, setSummary] = useState("");
     const [error, setError] = useState(null);
 
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
+        console.log("Selected file:", selectedFile); // Debugging log
         setFile(selectedFile);
     };
+    
 
     const handleFileUpload = async () => {
+        console.log("Button clicked"); // Debugging log
         if (!file) {
             setError("Please select a file first.");
             return;
         }
-
+    
         const formData = new FormData();
         formData.append("file", file);
-
+    
         try {
-            const response = await axios.post(
-                "https://your-api-gateway-url/stage1/upload",
-                formData,
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
-            );
-
-            setSummary(response.data.summary);
-            setError(null);
+            const endpoint = "http://127.0.0.1:8000/summary/";
+            const response = await fetch(endpoint, {
+                method: "POST",
+                body: formData,
+            });
+    
+            if (response.ok) {
+                const data = await response.json();
+                console.log("Response data:", data);
+                setSummary(`File uploaded: ${data.filename}`);
+                setError(null);
+            } else {
+                console.error("Upload failed with status:", response.status);
+                setError("Failed to upload file or generate summary.");
+            }
         } catch (err) {
             setError("Failed to upload file or generate summary.");
             console.error(err);
         }
     };
-
+        
     const [content, setContent] = useState(
         <div className="resume-upload">
             <h2>Upload Your Resume</h2>
